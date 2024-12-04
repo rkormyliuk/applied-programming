@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders List</title>
+    <!-- Linking Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 30px;
+        }
+        .order-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .order-list li {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .order-list a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+        }
+        .order-list a:hover {
+            text-decoration: underline;
+        }
+        .btn-add {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Orders List</h1>
+
+        <!-- Button to Add New Order -->
+        <a href="{% url 'order_create' %}" class="btn btn-primary btn-add">Add New Order</a>
+
+        <!-- Orders List -->
+        <ul class="order-list">
+            {% for order in orders %}
+            <li class="d-flex justify-content-between">
+                <a href="{% url 'order_detail' order.id %}">Order #{{ order.id }} - {{ order.customer_name }}</a>
+                <!-- You can add more details or actions, like buttons to edit or delete, here -->
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Linking Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

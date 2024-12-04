@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Detail</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            margin-top: 30px;
+        }
+        .order-details {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .order-details p {
+            font-size: 18px;
+        }
+        .btn-group a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <div class="order-details">
+            <h1>Order #{{ order.id }}</h1>
+            <p><strong>Customer:</strong> {{ order.customer_name }}</p>
+            <p><strong>Date:</strong> {{ order.order_date }}</p>
+            <p><strong>Status:</strong> {{ order.order_status }}</p>
+            <p><strong>Total Amount:</strong> ${{ order.total_amount }}</p>
+
+            <div class="btn-group">
+                <a href="{% url 'order_update' order.id %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'order_delete' order.id %}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

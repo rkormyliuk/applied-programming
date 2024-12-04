@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publishing House Detail</title>
+    <!-- Linking Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <!-- Card for Publishing House Details -->
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="card-title mb-4">{{ publishinghouse.name }}</h1>
+                <p class="card-text"><strong>Location:</strong> {{ publishinghouse.location }}</p>
+                <p class="card-text"><strong>Year of Foundation:</strong> {{ publishinghouse.year_of_fundation }}</p>
+                <p class="card-text"><strong>Telephone:</strong> {{ publishinghouse.telephone_number }}</p>
+                <p class="card-text"><strong>Website:</strong>
+                    <a href="{{ publishinghouse.website }}" target="_blank">{{ publishinghouse.website }}</a>
+                </p>
+                <div class="d-flex justify-content-between">
+                    <a href="{% url 'publishinghouse_update' publishinghouse.id %}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{% url 'publishinghouse_delete' publishinghouse.id %}" class="btn btn-danger btn-sm">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Linking Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
